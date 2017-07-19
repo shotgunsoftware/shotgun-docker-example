@@ -7,6 +7,13 @@ services:
       - "80:80"
     environment:
       SHOTGUN_SITE_URL: shotgun.mystudio.com
+      POSTGRES_HOST: db            # Hostname or DB container name
+      POSTGRES_DB: shotgun
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: shotgun
+      #POSTGRES_PASSWORD: dummy
+      MEMCACHED_HOST: memcached    # Hostname or memcached container name
+      MEMCACHED_PORT: 11211
     volumes:
       - ./media:/media
     depends_on:
@@ -21,6 +28,21 @@ services:
       default:
         aliases:
           - shotgun.mystudio.com
+    restart: always
+ ##################################################################
+  emailnotifier:
+    image: shotgun-app:%VERSION%
+    command: sg_run_email_notifier
+    environment:
+      SHOTGUN_SITE_URL: shotgun.mystudio.com
+      POSTGRES_HOST: db            # Hostname or DB container name
+      POSTGRES_DB: shotgun
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: shotgun
+      #POSTGRES_PASSWORD: dummy
+    depends_on:
+      - db
+      - memcached
     restart: always
   ##################################################################
   memcached:
@@ -45,10 +67,35 @@ services:
       PGHOST: db
       PGPORT: 5432
       PGUSER: shotgun
+      PGDATABASE: shotgun
       PGOPTIONS: "-c statement_timeout=0"
       #PGPASSWORD: dummy
     volumes:
       - ./db_backup:/db_backup
+    restart: always
+ ##################################################################
+  transcoderserver:
+    image: shotgun-transcoder-server:7.1.0.0-1
+    environment:
+      POSTGRES_HOST: db  # Hostname or DB container name   
+      POSTGRES_DB: shotgun_transcoding
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: shotgun
+      #POSTGRES_PASSWORD: dummy
+    ports:
+      - "8008:80"
+    restart: always
+ ##################################################################
+  transcoderworker:
+    image: shotgun-transcoder-worker:7.1.0.0-1
+    environment:
+      POSTGRES_HOST: db # Hostname or DB container name
+      POSTGRES_DB: shotgun_transcoding
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: shotgun
+      #POSTGRES_PASSWORD: dummy
+    volumes:
+      - ./media:/media
     restart: always
   ##################################################################
   # proxy:

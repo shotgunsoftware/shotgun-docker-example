@@ -8,10 +8,14 @@ Clone this repository
 
     git clone git@github.com:shotgunsoftware/shotgun-docker-example.git
 
-You then need to acquire the latest version of the Shotgun container from the Shotgun Account Center, and load it into docker
+You then need to acquire the latest version of the Shotgun containers from the Shotgun Account Center, and load them into docker
     
     gunzip shotgun-docker-se.7.2.3.0.tar.gz
-    sudo docker load < shotgun-app.7.2.3.0.tar
+    gunzip shotgun-docker-se-transcoder-7.1.0.0.tar.gz
+    sudo docker load < shotgun-docker-se.7.2.3.0.tar
+    sudo docker load < shotgun-docker-se-transcoder-7.1.0.0.tar
+
+Update the `docker-compose.yml` file and put the matching versions of the docker images in place of `%VERSION%`.
 
 You can then start Shotgun and all required containers using
 
