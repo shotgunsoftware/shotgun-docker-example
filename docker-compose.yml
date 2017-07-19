@@ -1,0 +1,60 @@
+version: '2'
+services:
+  ##################################################################
+  app:
+    image: shotgun-app:%VERSION%
+    ports:
+      - "80:80"
+    environment:
+      SHOTGUN_SITE_URL: shotgun.mystudio.com
+    volumes:
+      - ./media:/media
+    depends_on:
+      - db
+      - memcached
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2g"
+        max-file: "20"
+    networks:
+      default:
+        aliases:
+          - shotgun.mystudio.com
+    restart: always
+  ##################################################################
+  memcached:
+    image: memcached:1.4-alpine
+    restart: always
+  ##################################################################
+  db:
+    image: postgres:9.3
+    environment:
+      POSTGRES_USER: shotgun
+      PGDATA: /var/lib/postgresql/data
+    restart: always
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+  ##################################################################
+  dbops:
+    image: postgres:9.3
+    command: ["/bin/bash"]
+    stdin_open: true
+    tty: true
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: shotgun
+      PGOPTIONS: "-c statement_timeout=0"
+      #PGPASSWORD: dummy
+    volumes:
+      - ./db_backup:/db_backup
+    restart: always
+  ##################################################################
+  # proxy:
+  #   build: ./proxy
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - app
+  #   restart: always

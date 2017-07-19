@@ -1,0 +1,69 @@
+HTTP/1.0 503 Service Unavailable
+Content-Type: text/html; charset=UTF-8
+
+<!-- This file is used to disable the web server when we are working on the site. -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style type="text/css">
+div.header {
+    font-size:18px;
+    font-style:bold;
+}
+div.message {
+    background-color:#DDDDDD;
+    font-size:12px;
+    margin:40px;
+    padding:20px;
+}
+div.footer {
+    font-size:10px;
+    text-align:center;
+    padding:1px;
+    font-style:italic
+}
+body {
+    color:#222222;
+    font-family:Helvetica, Verdana, Arial, sans-serif;
+    font-size:11px;
+    background-color:#757575;
+}
+#top_system_bar {
+    background-color:#757575;
+    bottom:auto;
+    height:25px;
+    margin-bottom:7px;
+    width:100%;
+}
+.light_border
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #F8F8F8;
+}
+A { color: #222; }
+A:visited { color: #222; }
+A:hover { color: #555; }
+</style>
+
+    <title>maintenance</title>
+</head>
+
+<body>
+<div id="top_system_bar">&nbsp;</div>
+<div class="light_border">&nbsp;
+<div class="message">
+  <div class="header">
+      <p>Your Shotgun Site is Undergoing Maintenance</p>
+  </div>
+  <p><b>Details: </b>Full details are available through your local Shotgun administrator.</p>
+  <div class="footer">
+    <p>For more information please visit our <a href="https://support.shotgunsoftware.com">support page</a> or
+    contact us at: <a href="mailto:support@shotgunsoftware.com">support@shotgunsoftware.com</a>.</p>
+  </div>
+</div>&nbsp;
+</div>
+</body>
+</html>
