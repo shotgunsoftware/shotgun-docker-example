@@ -11,9 +11,11 @@ Clone this repository
 You then need to acquire the latest version of the Shotgun containers from the Shotgun Account Center, and load them into docker
     
     gunzip shotgun-docker-se.7.2.3.0.tar.gz
-    gunzip shotgun-docker-se-transcoder-7.1.0.0.tar.gz
+    gunzip shotgun-docker-se-transcoder-server-5.0.5.tar.gz
+    gunzip shotgun-docker-se-transcoder-worker-8.1.6.tar.gz
     sudo docker load < shotgun-docker-se.7.2.3.0.tar
-    sudo docker load < shotgun-docker-se-transcoder-7.1.0.0.tar
+    sudo docker load < shotgun-docker-se-transcoder-server-5.0.5.tar
+    sudo docker load < shotgun-docker-se-transcoder-server-8.1.6.tar
 
 Update the `docker-compose.yml` file and put the matching versions of the docker images in place of `%VERSION%`.
 
