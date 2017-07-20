@@ -75,7 +75,7 @@ services:
     restart: always
  ##################################################################
   transcoderserver:
-    image: shotgun-transcoder-server:7.1.0.0-1
+    image: shotgun-transcoder-server:%TCSERVER_VERSION%
     environment:
       POSTGRES_HOST: db  # Hostname or DB container name   
       POSTGRES_DB: shotgun_transcoding
@@ -87,7 +87,7 @@ services:
     restart: always
  ##################################################################
   transcoderworker:
-    image: shotgun-transcoder-worker:7.1.0.0-1
+    image: shotgun-transcoder-worker:%TCWORKER_VERSION%
     environment:
       POSTGRES_HOST: db # Hostname or DB container name
       POSTGRES_DB: shotgun_transcoding
