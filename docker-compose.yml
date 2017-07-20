@@ -73,30 +73,30 @@ services:
     volumes:
       - ./db_backup:/db_backup
     restart: always
- ##################################################################
-  transcoderserver:
-    image: shotgun-transcoder-server:%TCSERVER_VERSION%
-    environment:
-      POSTGRES_HOST: db  # Hostname or DB container name   
-      POSTGRES_DB: shotgun_transcoding
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: shotgun
-      #POSTGRES_PASSWORD: dummy
-    ports:
-      - "8008:80"
-    restart: always
- ##################################################################
-  transcoderworker:
-    image: shotgun-transcoder-worker:%TCWORKER_VERSION%
-    environment:
-      POSTGRES_HOST: db # Hostname or DB container name
-      POSTGRES_DB: shotgun_transcoding
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: shotgun
-      #POSTGRES_PASSWORD: dummy
-    volumes:
-      - ./media:/media
-    restart: always
+ # ##################################################################
+ #  transcoderserver:
+ #    image: shotgun-transcoder-server:%TCSERVER_VERSION%
+ #    environment:
+ #      POSTGRES_HOST: db  # Hostname or DB container name   
+ #      POSTGRES_DB: shotgun_transcoding
+ #      POSTGRES_PORT: 5432
+ #      POSTGRES_USER: shotgun
+ #      #POSTGRES_PASSWORD: dummy
+ #    ports:
+ #      - "8008:80"
+ #    restart: always
+ # ##################################################################
+ #  transcoderworker:
+ #    image: shotgun-transcoder-worker:%TCWORKER_VERSION%
+ #    environment:
+ #      POSTGRES_HOST: db # Hostname or DB container name
+ #      POSTGRES_DB: shotgun_transcoding
+ #      POSTGRES_PORT: 5432
+ #      POSTGRES_USER: shotgun
+ #      #POSTGRES_PASSWORD: dummy
+ #    volumes:
+ #      - ./media:/media
+ #    restart: always
   ##################################################################
   # proxy:
   #   build: ./proxy
