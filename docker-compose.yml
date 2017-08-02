@@ -30,20 +30,20 @@ services:
           - shotgun.mystudio.test
     restart: always
  ##################################################################
-  emailnotifier:
-    image: shotgun-app:%VERSION%
-    command: sg_run_email_notifier
-    environment:
-      SHOTGUN_SITE_URL: shotgun.mystudio.test
-      POSTGRES_HOST: db            # Hostname or DB container name
-      POSTGRES_DB: shotgun
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: shotgun
-      #POSTGRES_PASSWORD: dummy
-    depends_on:
-      - db
-      - memcached
-    restart: always
+  # emailnotifier:
+  #   image: shotgun-app:%VERSION%
+  #   command: sg_run_email_notifier
+  #   environment:
+  #     SHOTGUN_SITE_URL: shotgun.mystudio.test
+  #     POSTGRES_HOST: db            # Hostname or DB container name
+  #     POSTGRES_DB: shotgun
+  #     POSTGRES_PORT: 5432
+  #     POSTGRES_USER: shotgun
+  #     #POSTGRES_PASSWORD: dummy
+  #   depends_on:
+  #     - db
+  #     - memcached
+  #   restart: always
   ##################################################################
   memcached:
     image: memcached:1.4-alpine
