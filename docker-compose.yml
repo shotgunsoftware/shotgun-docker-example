@@ -2,11 +2,9 @@ version: '2'
 services:
   ##################################################################
   app:
-    image: shotgun-app:%VERSION%
-    ports:
-      - "80:80"
+    image: quay.io/shotgun/shotgun-app:7.1.1.2-beta10
     environment:
-      SHOTGUN_SITE_URL: shotgun.mystudio.test
+      SHOTGUN_SITE_URL: shotgun.mystudio.com
       POSTGRES_HOST: db            # Hostname or DB container name
       POSTGRES_DB: shotgun
       POSTGRES_PORT: 5432
@@ -27,7 +25,7 @@ services:
     networks:
       default:
         aliases:
-          - shotgun.mystudio.test
+          - shotgun.mystudio.com
     restart: always
  ##################################################################
   # emailnotifier:
@@ -98,10 +96,10 @@ services:
  #      - ./media:/media
  #    restart: always
   ##################################################################
-  # proxy:
-  #   build: ./proxy
-  #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     - app
-  #   restart: always
+  proxy:
+    build: ./proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    restart: always
