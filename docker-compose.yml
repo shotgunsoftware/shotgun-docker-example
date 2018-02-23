@@ -14,6 +14,8 @@ services:
       #POSTGRES_PASSWORD: dummy
       MEMCACHED_HOST: memcached    # Hostname or memcached container name
       MEMCACHED_PORT: 11211
+    labels:
+      com.shotgunsoftware.component: app
     volumes:
       - ./media:/media
     depends_on:
@@ -40,6 +42,8 @@ services:
   #     POSTGRES_PORT: 5432
   #     POSTGRES_USER: shotgun
   #     #POSTGRES_PASSWORD: dummy
+  #   labels:
+  #     com.shotgunsoftware.component: emailnotifier
   #   depends_on:
   #     - db
   #     - memcached
@@ -70,6 +74,8 @@ services:
       PGDATABASE: shotgun
       PGOPTIONS: "-c statement_timeout=0"
       #PGPASSWORD: dummy
+    labels:
+      com.shotgunsoftware.component: dbops
     volumes:
       - ./db_backup:/db_backup
     restart: always
@@ -82,6 +88,8 @@ services:
  #      POSTGRES_PORT: 5432
  #      POSTGRES_USER: shotgun
  #      #POSTGRES_PASSWORD: dummy
+ #    labels:
+ #      com.shotgunsoftware.component: transcoderserver
  #    ports:
  #      - "8008:80"
  #    restart: always
@@ -94,6 +102,8 @@ services:
  #      POSTGRES_PORT: 5432
  #      POSTGRES_USER: shotgun
  #      #POSTGRES_PASSWORD: dummy
+ #    labels:
+ #      com.shotgunsoftware.component: transcoderworker
  #    volumes:
  #      - ./media:/media
  #    restart: always
