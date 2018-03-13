@@ -88,6 +88,8 @@ services:
  #      POSTGRES_PORT: 5432
  #      POSTGRES_USER: shotgun
  #      #POSTGRES_PASSWORD: dummy
+ #      DASHBOARD_USERNAME: admin
+ #      DASHBOARD_PASSWORD: <password>
  #    labels:
  #      com.shotgunsoftware.component: transcoderserver
  #    ports:
