@@ -4,7 +4,7 @@ services:
   app:
     image: shotgun-app:%VERSION%
     ports:
-      - "x.x.x.x:80:80"            # Should replace x.x.x.x with your network interface IP
+      - "<network_interface_ip>:80:80"
     environment:
       SHOTGUN_SITE_URL: shotgun.mystudio.test
       POSTGRES_HOST: db            # Hostname or DB container name
@@ -93,7 +93,7 @@ services:
  #    labels:
  #      com.shotgunsoftware.component: transcoderserver
  #    ports:
- #      - "x.x.x.x:8008:80"        # Should replace x.x.x.x with your network interface IP
+ #      - "<network_interface_ip>:8008:80"
  #    restart: always
  # ##################################################################
  #  transcoderworker:
@@ -113,7 +113,7 @@ services:
   # proxy:
   #   build: ./proxy
   #   ports:
-  #     - "x.x.x.x:80:80"          # Should replace x.x.x.x with your network interface IP
+  #     - "<network_interface_ip>:80:80"
   #   depends_on:
   #     - app
   #   restart: always
