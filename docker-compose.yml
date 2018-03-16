@@ -4,7 +4,7 @@ services:
   app:
     image: shotgun-app:%VERSION%
     ports:
-      - "80:80"
+      - "x.x.x.x:80:80"            # Should replace x.x.x.x with your network interface IP
     environment:
       SHOTGUN_SITE_URL: shotgun.mystudio.test
       POSTGRES_HOST: db            # Hostname or DB container name
@@ -37,7 +37,7 @@ services:
   #   command: sg_run_email_notifier
   #   environment:
   #     SHOTGUN_SITE_URL: shotgun.mystudio.test
-  #     POSTGRES_HOST: db            # Hostname or DB container name
+  #     POSTGRES_HOST: db          # Hostname or DB container name
   #     POSTGRES_DB: shotgun
   #     POSTGRES_PORT: 5432
   #     POSTGRES_USER: shotgun
@@ -83,7 +83,7 @@ services:
  #  transcoderserver:
  #    image: shotgun-transcoder-server:%TCSERVER_VERSION%
  #    environment:
- #      POSTGRES_HOST: db  # Hostname or DB container name   
+ #      POSTGRES_HOST: db          # Hostname or DB container name
  #      POSTGRES_DB: shotgun_transcoding
  #      POSTGRES_PORT: 5432
  #      POSTGRES_USER: shotgun
@@ -93,13 +93,13 @@ services:
  #    labels:
  #      com.shotgunsoftware.component: transcoderserver
  #    ports:
- #      - "8008:80"
+ #      - "x.x.x.x:8008:80"        # Should replace x.x.x.x with your network interface IP
  #    restart: always
  # ##################################################################
  #  transcoderworker:
  #    image: shotgun-transcoder-worker:%TCWORKER_VERSION%
  #    environment:
- #      POSTGRES_HOST: db # Hostname or DB container name
+ #      POSTGRES_HOST: db          # Hostname or DB container name
  #      POSTGRES_DB: shotgun_transcoding
  #      POSTGRES_PORT: 5432
  #      POSTGRES_USER: shotgun
@@ -113,7 +113,7 @@ services:
   # proxy:
   #   build: ./proxy
   #   ports:
-  #     - "80:80"
+  #     - "x.x.x.x:80:80"          # Should replace x.x.x.x with your network interface IP
   #   depends_on:
   #     - app
   #   restart: always
