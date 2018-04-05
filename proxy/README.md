@@ -40,3 +40,5 @@ E.g.
     server production 192.168.0.100:8080 check
 where 192.168.0.100 is a IP of the host and 8080 is a exposed port of shotgun app container.
 
+Start container.
+    sudo docker-compose up --build -d
