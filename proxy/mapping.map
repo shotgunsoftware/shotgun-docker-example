@@ -1,0 +1,3 @@
+#domainname  backendname
+shotgun.mystudio.test production
+shotgun-staging.mystudio.test staging

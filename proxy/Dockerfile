@@ -11,6 +11,7 @@ RUN sed -i '/imklog.so/d' /etc/rsyslog.conf
 COPY files_docker/etc/supervisord.conf /etc/supervisord.conf
 COPY files_docker/etc/rsyslog.d/haproxy.conf /etc/rsyslog.d/haproxy.conf
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+COPY mapping.map /usr/local/etc/haproxy/mapping.map
 COPY errors/ /usr/local/etc/haproxy/errors/
 
 # Uncomment to enable https
