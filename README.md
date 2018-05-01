@@ -45,7 +45,7 @@ This solution uses [Fluentd](https://www.fluentd.org/) as the data collector bet
 
 Start Fluentd and Elasticsearch along with Kibana.
 
-    sudo docker-compose up -d
+    sudo docker-compose -f docker-compose.elk.yml up -d
     
 Change the shotgun application logging driver in its `docker-compose.yml` file from `json-file` to `fluentd`.
 
