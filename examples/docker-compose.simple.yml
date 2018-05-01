@@ -1,0 +1,81 @@
+version: '2'
+services:
+  ##################################################################
+  app:
+    image: shotgun-app:%VERSION%
+    ports:
+      - "<network_interface_ip>:80:80"
+    environment:
+      SHOTGUN_SITE_URL: shotgun.mystudio.test
+      POSTGRES_HOST: db            # Hostname or DB container name
+      POSTGRES_DB: shotgun
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: shotgun
+      #POSTGRES_PASSWORD: dummy
+      MEMCACHED_HOST: memcached    # Hostname or memcached container name
+      MEMCACHED_PORT: 11211
+    labels:
+      com.shotgunsoftware.component: app
+    volumes:
+      - ./media:/media
+    depends_on:
+      - db
+      - memcached
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2g"
+        max-file: "20"
+    networks:
+      default:
+        aliases:
+          - shotgun.mystudio.test
+    restart: always
+ ##################################################################
+  # emailnotifier:
+  #   image: shotgun-app:%VERSION%
+  #   command: sg_run_email_notifier
+  #   environment:
+  #     SHOTGUN_SITE_URL: shotgun.mystudio.test
+  #     POSTGRES_HOST: db          # Hostname or DB container name
+  #     POSTGRES_DB: shotgun
+  #     POSTGRES_PORT: 5432
+  #     POSTGRES_USER: shotgun
+  #     #POSTGRES_PASSWORD: dummy
+  #   labels:
+  #     com.shotgunsoftware.component: emailnotifier
+  #   depends_on:
+  #     - db
+  #     - memcached
+  #   restart: always
+  ##################################################################
+  memcached:
+    image: memcached:1.4-alpine
+    restart: always
+  ##################################################################
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: shotgun
+      PGDATA: /var/lib/postgresql/data
+    restart: always
+    volumes:
+      - ../pgdata:/var/lib/postgresql/data
+  ##################################################################
+  dbops:
+    image: postgres:9.6
+    command: ["/bin/bash"]
+    stdin_open: true
+    tty: true
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: shotgun
+      PGDATABASE: shotgun
+      PGOPTIONS: "-c statement_timeout=0"
+      #PGPASSWORD: dummy
+    labels:
+      com.shotgunsoftware.component: dbops
+    volumes:
+      - ../db_backup:/db_backup
+    restart: always

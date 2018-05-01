@@ -1,0 +1,71 @@
+{
+  "version": "6.2.1",
+  "objects": [
+    {
+      "id": "cb3d5f20-38f5-11e8-917a-6d8827b5bde3",
+      "type": "search",
+      "updated_at": "2018-04-12T14:50:03.450Z",
+      "version": 2,
+      "attributes": {
+        "title": "SG CRUD Activity",
+        "description": "Logs where CRUD is involved",
+        "hits": 0,
+        "columns": [
+          "_source"
+        ],
+        "sort": [
+          "@timestamp",
+          "desc"
+        ],
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"query\": {\n    \"language\": \"lucene\",\n    \"query\": \"\"\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": null,\n        \"type\": \"exists\",\n        \"key\": \"crud_op\",\n        \"value\": \"exists\"\n      },\n      \"exists\": {\n        \"field\": \"crud_op\"\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "id": "cb381c10-3902-11e8-8ebb-81889785ce02",
+      "type": "search",
+      "updated_at": "2018-04-12T14:56:52.092Z",
+      "version": 3,
+      "attributes": {
+        "title": "SG Queries",
+        "description": "Logs containing queries",
+        "hits": 0,
+        "columns": [
+          "_source"
+        ],
+        "sort": [
+          "@timestamp",
+          "desc"
+        ],
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"lucene\"\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": null,\n        \"type\": \"exists\",\n        \"key\": \"controller\",\n        \"value\": \"exists\"\n      },\n      \"exists\": {\n        \"field\": \"controller\"\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "id": "e4c474a0-3905-11e8-8ebb-81889785ce02",
+      "type": "search",
+      "updated_at": "2018-04-12T14:48:47.136Z",
+      "version": 2,
+      "attributes": {
+        "title": "SG Passenger Queue Duration",
+        "description": "",
+        "hits": 0,
+        "columns": [
+          "_source"
+        ],
+        "sort": [
+          "@timestamp",
+          "desc"
+        ],
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"query\": {\n    \"language\": \"lucene\",\n    \"query\": \"\"\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"index\": \"f22a7d00-3122-11e8-bd16-bdcdf38c30ff\",\n        \"negate\": false,\n        \"disabled\": false,\n        \"alias\": null,\n        \"type\": \"exists\",\n        \"key\": \"passenger_queue\",\n        \"value\": \"exists\"\n      },\n      \"exists\": {\n        \"field\": \"passenger_queue\"\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+        }
+      }
+    }
+  ]
+}

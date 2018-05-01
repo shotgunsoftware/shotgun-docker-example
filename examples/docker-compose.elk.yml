@@ -17,15 +17,15 @@ services:
     labels:
       com.shotgunsoftware.component: app
     volumes:
-      - ./media:/media
+      - ../media:/media
     depends_on:
       - db
       - memcached
     logging:
-      driver: "json-file"
+      driver: "fluentd"
       options:
-        max-size: "2g"
-        max-file: "20"
+        fluentd-address: "<network_interface_ip>:24224"
+        tag: "sg.app.{{.ID}}"
     networks:
       default:
         aliases:
@@ -60,7 +60,7 @@ services:
       PGDATA: /var/lib/postgresql/data
     restart: always
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - ../pgdata:/var/lib/postgresql/data
   ##################################################################
   dbops:
     image: postgres:9.6
@@ -77,48 +77,37 @@ services:
     labels:
       com.shotgunsoftware.component: dbops
     volumes:
-      - ./db_backup:/db_backup
+      - ../db_backup:/db_backup
     restart: always
- # ##################################################################
- #  transcoderserver:
- #    image: shotgun-transcoder-server:%TCSERVER_VERSION%
- #    environment:
- #      POSTGRES_HOST: db          # Hostname or DB container name
- #      POSTGRES_DB: shotgun_transcoding
- #      POSTGRES_PORT: 5432
- #      POSTGRES_USER: shotgun
- #      #POSTGRES_PASSWORD: dummy
- #      DASHBOARD_USERNAME: admin
- #      DASHBOARD_PASSWORD: <password>
- #    labels:
- #      com.shotgunsoftware.component: transcoderserver
- #    ports:
- #      - "<network_interface_ip>:8008:80"
- #    restart: always
- # ##################################################################
- #  transcoderworker:
- #    image: shotgun-transcoder-worker:%TCWORKER_VERSION%
- #    environment:
- #      POSTGRES_HOST: db          # Hostname or DB container name
- #      POSTGRES_DB: shotgun_transcoding
- #      POSTGRES_PORT: 5432
- #      POSTGRES_USER: shotgun
- #      #POSTGRES_PASSWORD: dummy
- #    labels:
- #      com.shotgunsoftware.component: transcoderworker
- #    volumes:
- #      - ./media:/media
- #    restart: always
   ##################################################################
-  # proxy:
-  #   build: ./proxy
-  #   ports:
-  #     - "<network_interface_ip>:80:80"
-  #   depends_on:
-  #     - app
-  #   restart: always
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-size: "2g"
-  #       max-file: "20"
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.1
+    ports:
+      - "9200:9200"
+    volumes:
+      - data_es:/usr/share/elasticsearch/data
+    ulimits:
+      memlock: -1
+  ##################################################################
+  kibana:
+    build: ../kibana
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    volumes:
+      - data_kb:/usr/share/kibana/data
+  ##################################################################
+  fluentd:
+    build: ../fluentd
+    ports:
+      - "24224:24224"
+    links:
+      - elasticsearch
+    volumes:
+      - ../fluentd/files_docker/fluent.conf:/fluentd/etc/fluent.conf:ro
+      - ../logs:/var/log/shotgun
+##################################################################
+volumes:
+  data_es:
+  data_kb:
