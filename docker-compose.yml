@@ -26,6 +26,12 @@ services:
       options:
         max-size: "2g"
         max-file: "20"
+    # # Send logs to ELK stack. See README.md for instructions
+    # logging:
+    #   driver: "fluentd"
+    #   options:
+    #     fluentd-address: "<elk_stack_ip>:24224"
+    #     tag: "sg.app.{{.ID}}"
     networks:
       default:
         aliases:
@@ -122,4 +128,9 @@ services:
   #     options:
   #       max-size: "2g"
   #       max-file: "20"
-  
+  # ## Send logs to ELK stack. See README.md for instructions
+  ##    logging:
+  ##     driver: "fluentd"
+  ##      options:
+  ##        fluentd-address: "<elk_stack_ip>:24224"
+  ##        tag: "sg.proxy.{{.ID}}"
