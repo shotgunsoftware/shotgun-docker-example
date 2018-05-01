@@ -1,0 +1,23 @@
+{
+  "version": "6.2.1",
+  "objects": [
+    {
+      "id": "68ba5fa0-3e5f-11e8-abb1-6de9583a2bd5",
+      "type": "dashboard",
+      "updated_at": "2018-04-12T15:12:25.543Z",
+      "version": 3,
+      "attributes": {
+        "title": "SG Support Dashboard",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":9,\"y\":15,\"w\":3,\"h\":3,\"i\":\"1\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"c7f83ee0-38f8-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":0,\"y\":12,\"w\":12,\"h\":3,\"i\":\"2\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"c4e0feb0-38f6-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":6,\"y\":15,\"w\":3,\"h\":3,\"i\":\"3\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"dc35fa50-38f8-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":3,\"y\":15,\"w\":3,\"h\":3,\"i\":\"4\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"f0131f30-38f8-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":0,\"y\":15,\"w\":3,\"h\":3,\"i\":\"5\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"6bc68fa0-38f8-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"6\",\"gridData\":{\"x\":0,\"y\":9,\"w\":6,\"h\":3,\"i\":\"6\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"c05c1d60-38f7-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"7\",\"gridData\":{\"x\":6,\"y\":9,\"w\":6,\"h\":3,\"i\":\"7\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"7ec4e2b0-38f7-11e8-917a-6d8827b5bde3\"},{\"panelIndex\":\"8\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":3,\"i\":\"8\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"8da62080-3903-11e8-8ebb-81889785ce02\"},{\"panelIndex\":\"9\",\"gridData\":{\"x\":0,\"y\":3,\"w\":12,\"h\":3,\"i\":\"9\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"728584a0-3906-11e8-8ebb-81889785ce02\"},{\"panelIndex\":\"10\",\"gridData\":{\"x\":0,\"y\":6,\"w\":12,\"h\":3,\"i\":\"10\"},\"version\":\"6.2.1\",\"type\":\"visualization\",\"id\":\"2772fda0-3904-11e8-8ebb-81889785ce02\"}]",
+        "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true,\"hidePanelTitles\":false}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+        }
+      }
+    }
+  ]
+}

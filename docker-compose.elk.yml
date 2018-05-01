@@ -1,0 +1,34 @@
+version: '2'
+services:
+  ##################################################################
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.1
+    ports:
+      - "9200:9200"
+    volumes:
+      - data_es:/usr/share/elasticsearch/data
+    ulimits:
+      memlock: -1
+  ##################################################################
+  kibana:
+    build: ./kibana
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    volumes:
+      - data_kb:/usr/share/kibana/data
+  ##################################################################
+  fluentd:
+    build: ./fluentd
+    ports:
+      - "24224:24224"
+    links:
+      - elasticsearch
+    volumes:
+      - ./fluentd/files_docker/fluent.conf:/fluentd/etc/fluent.conf:ro
+      - ./logs:/var/log/shotgun
+##################################################################
+volumes:
+  data_es:
+  data_kb:
