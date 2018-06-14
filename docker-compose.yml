@@ -111,9 +111,11 @@ services:
  #    restart: always
   ##################################################################
   # proxy:
-  #   build: ./proxy
+  #   build: ./proxy/setup
   #   ports:
   #     - "<network_interface_ip>:80:80"
+  #   volumes:
+  #     - ./proxy/config:/etc/haproxy
   #   depends_on:
   #     - app
   #   restart: always
