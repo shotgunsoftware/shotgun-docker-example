@@ -1,4 +1,4 @@
-FROM haproxy:1.7-alpine
+FROM haproxy:1.8-alpine
 MAINTAINER Autodesk <info@autodesk.com>
 
 RUN apk add --no-cache \
