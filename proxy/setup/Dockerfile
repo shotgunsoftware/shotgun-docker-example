@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     rsyslog
 
 RUN sed -i '/imklog.so/d' /etc/rsyslog.conf
+RUN mkdir -p /usr/local/etc/haproxy/config /usr/local/etc/haproxy/certs
 
 COPY files_docker/etc/supervisord.conf /etc/supervisord.conf
 COPY files_docker/etc/rsyslog.d/haproxy.conf /etc/rsyslog.d/haproxy.conf

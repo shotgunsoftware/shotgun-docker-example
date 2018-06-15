@@ -115,7 +115,8 @@ services:
   #   ports:
   #     - "<network_interface_ip>:80:80"
   #   volumes:
-  #     - ./proxy/config:/etc/haproxy
+  #     - ./proxy/config:/usr/local/etc/haproxy/config
+  #     - ./proxy/certs:/usr/local/etc/haproxy/certs
   #   depends_on:
   #     - app
   #   restart: always
