@@ -117,6 +117,7 @@ services:
   #   volumes:
   #     - ./proxy/config:/usr/local/etc/haproxy/config
   #     - ./proxy/certs:/usr/local/etc/haproxy/certs
+  #     - ./proxy/custom_errors:/usr/local/etc/haproxy/custom_errors
   #   depends_on:
   #     - app
   #   restart: always
