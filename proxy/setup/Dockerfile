@@ -1,7 +1,7 @@
-FROM haproxy:1.8-alpine
+FROM haproxy:1.8
 MAINTAINER Autodesk <info@autodesk.com>
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     socat \
     supervisor \
     rsyslog
