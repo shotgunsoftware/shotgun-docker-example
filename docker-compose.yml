@@ -50,7 +50,7 @@ services:
   #   restart: always
   ##################################################################
   memcached:
-    image: memcached:1.4
+    image: memcached:1.4-alpine
     restart: always
   ##################################################################
   db:
