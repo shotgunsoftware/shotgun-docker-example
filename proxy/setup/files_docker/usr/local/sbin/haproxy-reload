@@ -1,2 +1,2 @@
-#!/bin/ash
-/bin/kill -USR2 $(/bin/cat /run/haproxy.pid)
+#!/bin/sh
+kill -USR2 $(cat /run/haproxy.pid)
