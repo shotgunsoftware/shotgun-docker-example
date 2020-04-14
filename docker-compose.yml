@@ -54,7 +54,7 @@ services:
     restart: always
   ##################################################################
   db:
-    image: postgres:9.6
+    image: postgres:11
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: shotgun
@@ -64,7 +64,7 @@ services:
       - ./pgdata:/var/lib/postgresql/data
   ##################################################################
   dbops:
-    image: postgres:9.6
+    image: postgres:11
     command: ["/bin/bash"]
     stdin_open: true
     tty: true
