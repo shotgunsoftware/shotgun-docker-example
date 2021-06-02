@@ -1,6 +1,6 @@
-# Shotgun Docker Example
+# ShotGrid Docker Example
 
-This repository contains an example configuration of Shotgun as a [docker](https://www.docker.com) container with [docker-compose](https://www.docker.com) orchestration.
+This repository contains an example configuration of ShotGrid as a [docker](https://www.docker.com) container with [docker-compose](https://www.docker.com) orchestration.
 
 ## Getting started
 
@@ -8,20 +8,20 @@ Clone this repository
 
     git clone git@github.com:shotgunsoftware/shotgun-docker-example.git
 
-You then need to acquire the latest version of the Shotgun containers from the Shotgun Account Center, and load them into docker
+You then need to acquire the latest version of the ShotGrid containers from the ShotGrid Account Center, and load them into docker
 
-    tar -xvf shotgun-docker-se-7.11.2.2.tar.gz
-    sudo docker load < shotgun/se/shotgun-app.7.11.2.2.tar
+    tar -xvf shotgrid-docker-se-X.X.X.X.tar.gz
+    sudo docker load < shotgrid/se/shotgrid-app.X.X.X.X.tar
     
 Update the `docker-compose.yml` file and put the matching versions of the docker images in place of `%VERSION%`.
 
-You can then start Shotgun and all required containers using
+You can then start ShotGrid and all required containers using
 
     sudo docker-compose up -d
     
-The Shotgun application will be available at http://localhost
+The ShotGrid application will be available at http://localhost
     
-## Logging into Shotgun
+## Logging into ShotGrid
 
 Find the shotgun_admin password in the app container log
 
