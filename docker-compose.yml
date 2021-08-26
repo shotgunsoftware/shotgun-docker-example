@@ -2,7 +2,7 @@ version: '2'
 services:
   ##################################################################
   app:
-    image: shotgrid-app:%VERSION%
+    image: shotgun-app:%VERSION%
     ports:
       - "<network_interface_ip>:80:80"
     environment:
@@ -33,7 +33,7 @@ services:
     restart: always
  ##################################################################
   # emailnotifier:
-  #   image: shotgrid-app:%VERSION%
+  #   image: shotgun-app:%VERSION%
   #   command: sg_run_email_notifier
   #   environment:
   #     SG_SITE_URL: shotgrod.mystudio.test
