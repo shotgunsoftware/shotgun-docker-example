@@ -10,8 +10,8 @@ Clone this repository
 
 You then need to acquire the latest version of the ShotGrid containers from the ShotGrid Account Center, and load them into docker
 
-    tar -xvf shotgrid-docker-se-X.X.X.X.tar.gz
-    sudo docker load < shotgrid/se/shotgrid-app.X.X.X.X.tar
+    tar -xvf shotgun-docker-se-X.X.X.X.tar.gz
+    sudo docker load < shotgun/se/shotgrid-app.X.X.X.X.tar
     
 Update the `docker-compose.yml` file and put the matching versions of the docker images in place of `%VERSION%`.
 
