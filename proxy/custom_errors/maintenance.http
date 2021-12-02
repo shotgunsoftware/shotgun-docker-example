@@ -56,12 +56,12 @@ A:hover { color: #555; }
 <div class="light_border">&nbsp;
 <div class="message">
   <div class="header">
-      <p>Your Shotgrid Site is Undergoing Maintenance</p>
+      <p>Your ShotGrid Site is Undergoing Maintenance</p>
   </div>
-  <p><b>Details: </b>Full details are available through your local Shotgrid administrator.</p>
+  <p><b>Details: </b>Full details are available through your local ShotGrid administrator.</p>
   <div class="footer">
-    <p>For more information please visit our <a href="https://support.shotgunsoftware.com">support page</a> or
-    contact us at: <a href="mailto:support@shotgunsoftware.com">support@shotgunsoftware.com</a>.</p>
+    <p>For more information please visit our <a href="https://knowledge.autodesk.com/support/shotgrid">support page</a> or
+    <a href="https://knowledge.autodesk.com/contact-support">contact support</a>.</p>
   </div>
 </div>&nbsp;
 </div>
