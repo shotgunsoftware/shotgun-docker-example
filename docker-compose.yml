@@ -14,6 +14,7 @@ services:
       #POSTGRES_PASSWORD: dummy
       MEMCACHED_HOST: memcached    # Hostname or memcached container name
       MEMCACHED_PORT: 11211
+      RACK_QUERY_PARSER_BYTESIZE_LIMIT: 52428800
     labels:
       com.shotgunsoftware.component: app
     volumes:
